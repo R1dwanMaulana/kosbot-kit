@@ -1,0 +1,16 @@
+[
+  {
+    "name": "menu",
+    "path": "/menu",
+    "component": "/Users/ridwanmaulana/Skripsi/project_skripsi/kosbot/src/pages/menu.vue",
+    "chunkName": "pages/menu",
+    "_name": "_3b5de531"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/ridwanmaulana/Skripsi/project_skripsi/kosbot/src/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_5dddd4f0"
+  }
+]
