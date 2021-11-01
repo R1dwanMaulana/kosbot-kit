@@ -1,14 +1,14 @@
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== "production";
 
 export default {
   // https://nuxtjs.org/api/configuration-modern
   modern: !isDev,
 
   // https://nuxtjs.org/api/configuration-srcdir
-  srcDir: 'src',
+  srcDir: "src",
 
   // https://nuxtjs.org/api/configuration-builddir
-  buildDir: 'functions/.nuxt',
+  buildDir: "functions/.nuxt",
 
   // https://nuxtjs.org/api/configuration-head
   head: {
@@ -16,43 +16,43 @@ export default {
       // if (title) {
       //   return `${title} - Nuxt PWA Vuetify Firebase SSR`;
       // }
-      return 'Kosbot | Aplikasi prediksi harga kost'
+      return "Kosbot | Aplikasi prediksi harga kost";
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'Aplikasi prediksi harga kost'
+        hid: "description",
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
       },
       // { property: 'og:image', content: '/icon.png' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: "format-detection", content: "telephone=no" },
       // { name: 'author', content: 'Reblood' },
       {
-        name: 'description',
-        content: 'Aplikasi prediksi harga kost'
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
       },
       {
-        property: 'og:title',
-        content: 'Kosbot | Aplikasi prediksi harga kost'
+        property: "og:title",
+        content: "Kosbot | Aplikasi prediksi harga kost",
       },
       {
-        property: 'og:description',
-        content: 'Aplikasi prediksi harga kost'
+        property: "og:description",
+        content: "Aplikasi prediksi harga kost",
       },
-      { property: 'og:type', content: 'website' }
+      { property: "og:type", content: "website" },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/bot.ico' }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/bot.ico" }],
   },
 
   // https://nuxtjs.org/api/configuration-modules
   modules: [
     // https://http.nuxtjs.org/
-    '@nuxt/http',
+    "@nuxt/http",
 
     // https://pwa.nuxtjs.org/
-    '@nuxtjs/pwa'
+    "@nuxtjs/pwa",
 
     // https://github.com/nuxt-community/sentry-module
     // "@nuxtjs/sentry",
@@ -69,7 +69,7 @@ export default {
 
   buildModules: [
     // Simple usage
-    '@nuxtjs/vuetify'
+    "@nuxtjs/vuetify",
   ],
 
   vuetify: {},
@@ -78,24 +78,24 @@ export default {
   plugins: [],
 
   // https://nuxtjs.org/api/configuration-css
-  css: ['~assets/styles/app'],
+  css: ["~assets/styles/app"],
 
   // https://nuxtjs.org/api/configuration-build
   build: {
     extractCSS: !isDev,
-    transpile: ['vee-validate/dist/rules'],
+    transpile: ["vee-validate/dist/rules"],
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /node_modules/,
           options: {
-            fix: true
-          }
-        })
+            fix: true,
+          },
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
