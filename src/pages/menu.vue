@@ -53,17 +53,17 @@
           </v-select>
         </v-col>
       </div>
-      <nuxt-link to="/predict" class="text-decoration-none">
-        <v-btn
-          class="mt-8 rounded-lg"
-          color="secondary"
-          dark
-          elevation="10"
-          @click="modelPredict()"
-        >
-          Submit
-        </v-btn>
-      </nuxt-link>
+      <!-- <nuxt-link to="/predict" class="text-decoration-none"> -->
+      <v-btn
+        class="mt-8 rounded-lg"
+        color="secondary"
+        dark
+        elevation="10"
+        @click="modelPredict()"
+      >
+        Submit
+      </v-btn>
+      <!-- </nuxt-link> -->
       <!-- </validation-observer> -->
     </v-col>
   </v-row>
