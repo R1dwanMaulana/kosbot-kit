@@ -99,11 +99,6 @@
     "npm": ">=6.4.1",
     "yarn": ">=1.12.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,vue}": [
       "prettier --write",
