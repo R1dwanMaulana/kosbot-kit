@@ -2,69 +2,135 @@
   <v-row justify="center" align="center" class="mx-2">
     <v-col cols="12" sm="8" md="6">
       <h3 class="mb-8 text-center">Cari Kost Impianmu</h3>
-      <!-- <validation-observer ref="observer"> -->
       <div class="d-flex justify-space-between">
-        <!-- <validation-provider
-          v-slot="{ errors }"
-          name="Panjang"
-          rules="required|numeric"
-        > -->
-        <p class="mt-10">Panjang</p>
-        <v-col class="d-flex" cols="4" sm="3">
-          <v-text-field required :error-messages="errors" label="Panjang(m)" />
-        </v-col>
-        <!-- </validation-provider> -->
-      </div>
-      <div class="d-flex justify-space-between">
-        <p class="mt-10">Lebar</p>
-        <v-col class="d-flex" cols="4" sm="3">
-          <v-text-field label="Lebar(m)" />
+        <p class="mt-8">Panjang</p>
+        <v-col class="mt-2 d-flex" cols="4" sm="3">
+          <v-text-field dense clearable label="Panjang(m)" />
         </v-col>
       </div>
-      <div
-        v-for="item in items"
-        :key="item.property"
-        class="d-flex justify-space-between"
-      >
-        <p class="mt-8">{{ item.property }}</p>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Lebar</p>
+        <v-col class="mt-2 d-flex" cols="4" sm="3">
+          <v-text-field dense clearable label="Lebar(m)" />
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Kamar mandi dalam</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select :items="changes" dense label="Pilih">
-            <option
-              v-for="change in changes"
-              :key="change"
-              :value="change.value"
-            >
-              {{ change.text }}
-            </option>
+          <v-select
+            v-model="saveChanges.bathroom"
+            :items="bathrooms"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Meja</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.table"
+            :items="tables"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Kursi</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.chair"
+            :items="chairs"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Dapur</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.kitchen"
+            :items="kitchens"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">AC</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.chooseAc"
+            :items="ac"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">WiFi</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.chooseWifi"
+            :items="wifi"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Parkir motor</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.motorcyleParking"
+            :items="motorcylesParking"
+            dense
+            label="Pilih"
+          >
+          </v-select>
+        </v-col>
+      </div>
+      <div class="d-flex justify-space-between">
+        <p class="mt-8">Parkir mobil</p>
+        <v-col class="d-flex mt-2" cols="4" sm="3">
+          <v-select
+            v-model="saveChanges.carParking"
+            :items="carsParking"
+            dense
+            label="Pilih"
+          >
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Lokasi</p>
         <v-col class="d-flex mt-2" cols="5" sm="3">
-          <v-select :items="locations" dense label="Pilih">
-            <option
-              v-for="location in locations"
-              :key="location"
-              :value="location.value"
-            >
-              {{ location.text }}
-            </option>
+          <v-select
+            v-model="saveChanges.location"
+            :items="locations"
+            dense
+            label="Pilih"
+          >
           </v-select>
         </v-col>
       </div>
-      <!-- <nuxt-link to="/predict" class="text-decoration-none"> -->
       <v-btn
         class="mt-8 rounded-lg"
         color="secondary"
         dark
-        elevation="10"
+        elevation="2"
         @click="modelPredict()"
       >
         Submit
       </v-btn>
-      <!-- </nuxt-link> -->
-      <!-- </validation-observer> -->
     </v-col>
   </v-row>
 </template>
@@ -89,6 +155,7 @@ export default {
         ValidationObserver,
       },
       predict: null,
+      submitted: false,
       items: [
         { property: "Kamar mandi dalam" },
         { property: "Meja" },
@@ -99,7 +166,35 @@ export default {
         { property: "Parkir Motor" },
         { property: "Parkir Mobil" },
       ],
-      changes: [
+      bathrooms: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      tables: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      chairs: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      kitchens: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      ac: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      wifi: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      motorcylesParking: [
+        { text: "Iya", value: 1 },
+        { text: "Tidak", value: 0 },
+      ],
+      carsParking: [
         { text: "Iya", value: 1 },
         { text: "Tidak", value: 0 },
       ],
@@ -113,6 +208,19 @@ export default {
         { text: "Kec.Blimbing", value: 7 },
         { text: "Blimbing", value: 8 },
       ],
+      saveChanges: {
+        panjang: null,
+        lebar: null,
+        bathroom: null,
+        table: null,
+        chair: null,
+        kitchen: null,
+        chooseAc: null,
+        chooseWifi: null,
+        motorcyleParking: null,
+        carParking: null,
+        location: null,
+      },
     };
   },
   methods: {
