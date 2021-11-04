@@ -20,7 +20,7 @@
         </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar color="orange darken-4" dark fixed app>
+    <v-app-bar color="blue-grey darken-4" dark fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title><strong>Kosbot</strong></v-toolbar-title>
     </v-app-bar>
@@ -33,7 +33,7 @@
         </v-layout>
       </v-container>
     </v-main>
-    <v-footer color="orange darken-4" app>
+    <v-footer color="blue-grey darken-4" app>
       <span class="white--text"
         >All right reserved | &copy; {{ new Date().getFullYear() }}</span
       >
@@ -45,8 +45,8 @@
 export default {
   data() {
     return {
-      drawer: null
-    }
-  }
-}
+      drawer: null,
+    };
+  },
+};
 </script>
