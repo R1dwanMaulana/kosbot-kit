@@ -5,13 +5,23 @@
       <div class="d-flex justify-space-between">
         <p class="mt-8">Panjang</p>
         <v-col class="mt-2 d-flex" cols="4" sm="3">
-          <v-text-field dense clearable label="Panjang(m)" />
+          <v-text-field
+            v-model="saveChanges.length"
+            dense
+            clearable
+            label="Panjang(m)"
+          />
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Lebar</p>
         <v-col class="mt-2 d-flex" cols="4" sm="3">
-          <v-text-field dense clearable label="Lebar(m)" />
+          <v-text-field
+            v-model="saveChanges.width"
+            dense
+            clearable
+            label="Lebar(m)"
+          />
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
@@ -124,7 +134,7 @@
       </div>
       <v-btn
         class="mt-8 rounded-lg"
-        color="secondary"
+        color="deep-orange accent-2"
         dark
         elevation="2"
         @click="modelPredict()"
@@ -136,23 +146,23 @@
 </template>
 
 <script>
-import { required, numeric } from "vee-validate/dist/rules";
-import { extend, ValidationProvider, ValidationObserver } from "vee-validate";
+// import { required, numeric } from "vee-validate/dist/rules";
+// import { extend, ValidationProvider, ValidationObserver } from "vee-validate";
 
-extend("required", {
-  ...required,
-  message: "{_field_} tidak boleh kosong",
-});
-extend("numeric", {
-  ...numeric,
-  message: "{_field_} harus numerik",
-});
+// extend("required", {
+//   ...required,
+//   message: "{_field_} tidak boleh kosong",
+// });
+// extend("numeric", {
+//   ...numeric,
+//   message: "{_field_} harus numerik",
+// });
 export default {
   data() {
     return {
       components: {
-        ValidationProvider,
-        ValidationObserver,
+        // ValidationProvider,
+        // ValidationObserver,
       },
       predict: null,
       submitted: false,
@@ -209,8 +219,8 @@ export default {
         { text: "Blimbing", value: 8 },
       ],
       saveChanges: {
-        panjang: null,
-        lebar: null,
+        length: null,
+        width: null,
         bathroom: null,
         table: null,
         chair: null,
@@ -225,7 +235,20 @@ export default {
   },
   methods: {
     modelPredict() {
-      return this.predict;
+      const predict =
+        -68531.9999133359 +
+        193290.7399441 * this.length +
+        53787.09955987 * this.width +
+        223041.25251717 * this.bathroom +
+        -94016.99467001 * this.table +
+        50481.71483865 * this.chair +
+        151462.80891942 * this.kitchen +
+        599669.48438946 * this.chooseAc +
+        60937.34930789 * this.chooseWifi +
+        -147062.92326872 * this.motorcyleParking +
+        83730.52196747 * this.carParking +
+        -14352.91188581 * this.location;
+      return predict;
     },
   },
 };
