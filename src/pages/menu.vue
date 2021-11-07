@@ -97,15 +97,22 @@
       >
         Cek
       </v-btn>
-      <p class="mt-10">Rp. {{ parseInt(predict) }} / bulan</p>
+      <p class="mt-6">
+        {{
+          new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+          }).format(predict)
+        }}
+        / bulan
+      </p>
     </v-col>
     <v-snackbar
       v-model="snackbar"
       :timeout="timeout"
       :disabled="invalid"
       elevation="24"
-      color="blue-grey darken-1"
-      >Data Anda sedang di proses. Mohon menunggu...</v-snackbar
+      >Sedang mencari harga kost untuk Anda, mohon menunggu....</v-snackbar
     >
   </v-row>
 </template>
@@ -217,7 +224,7 @@ export default {
       try {
         this.loading = true;
         this.snackbar = true;
-        await new Promise((resolve) => setTimeout(resolve, 4000));
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         this.predict =
           -68531.9999133359 +
           193290.7399441 * this.length +
