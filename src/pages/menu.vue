@@ -5,94 +5,54 @@
       <div class="d-flex justify-space-between">
         <p class="mt-8">Panjang</p>
         <v-col class="mt-2 d-flex" cols="4" sm="3">
-          <v-text-field
-            v-model="saveChanges.length"
-            dense
-            clearable
-            label="Panjang(m)"
-          />
+          <v-text-field v-model="length" dense clearable label="Panjang(m)" />
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Lebar</p>
         <v-col class="mt-2 d-flex" cols="4" sm="3">
-          <v-text-field
-            v-model="saveChanges.width"
-            dense
-            clearable
-            label="Lebar(m)"
-          />
+          <v-text-field v-model="width" dense clearable label="Lebar(m)" />
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Kamar mandi dalam</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.bathroom"
-            :items="bathrooms"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="bathroom" :items="bathrooms" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Meja</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.table"
-            :items="tables"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="table" :items="tables" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Kursi</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.chair"
-            :items="chairs"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="chair" :items="chairs" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">Dapur</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.kitchen"
-            :items="kitchens"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="kitchen" :items="kitchens" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">AC</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.chooseAc"
-            :items="ac"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="chooseAc" :items="ac" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
       <div class="d-flex justify-space-between">
         <p class="mt-8">WiFi</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
-          <v-select
-            v-model="saveChanges.chooseWifi"
-            :items="wifi"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="chooseWifi" :items="wifi" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
@@ -100,7 +60,7 @@
         <p class="mt-8">Parkir motor</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
           <v-select
-            v-model="saveChanges.motorcyleParking"
+            v-model="motorcyleParking"
             :items="motorcylesParking"
             dense
             label="Pilih"
@@ -112,7 +72,7 @@
         <p class="mt-8">Parkir mobil</p>
         <v-col class="d-flex mt-2" cols="4" sm="3">
           <v-select
-            v-model="saveChanges.carParking"
+            v-model="carParking"
             :items="carsParking"
             dense
             label="Pilih"
@@ -123,12 +83,7 @@
       <div class="d-flex justify-space-between">
         <p class="mt-8">Lokasi</p>
         <v-col class="d-flex mt-2" cols="5" sm="3">
-          <v-select
-            v-model="saveChanges.location"
-            :items="locations"
-            dense
-            label="Pilih"
-          >
+          <v-select v-model="location" :items="locations" dense label="Pilih">
           </v-select>
         </v-col>
       </div>
@@ -139,8 +94,9 @@
         elevation="2"
         @click="modelPredict()"
       >
-        Submit
+        Cek
       </v-btn>
+      <p class="mt-10">Rp. {{ parseInt(predict) }} / bulan</p>
     </v-col>
   </v-row>
 </template>
@@ -164,7 +120,18 @@ export default {
         // ValidationProvider,
         // ValidationObserver,
       },
-      predict: null,
+      length: null,
+      width: null,
+      bathroom: null,
+      table: null,
+      chair: null,
+      kitchen: null,
+      chooseAc: null,
+      chooseWifi: null,
+      motorcyleParking: null,
+      carParking: null,
+      location: null,
+      predict: 0,
       submitted: false,
       items: [
         { property: "Kamar mandi dalam" },
@@ -235,7 +202,7 @@ export default {
   },
   methods: {
     modelPredict() {
-      const predict =
+      this.predict =
         -68531.9999133359 +
         193290.7399441 * this.length +
         53787.09955987 * this.width +
@@ -248,7 +215,6 @@ export default {
         -147062.92326872 * this.motorcyleParking +
         83730.52196747 * this.carParking +
         -14352.91188581 * this.location;
-      return predict;
     },
   },
 };
