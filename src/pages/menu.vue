@@ -92,12 +92,21 @@
         color="deep-orange accent-2"
         dark
         elevation="2"
+        :loading="loading"
         @click="modelPredict()"
       >
         Cek
       </v-btn>
       <p class="mt-10">Rp. {{ parseInt(predict) }} / bulan</p>
     </v-col>
+    <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+      :disabled="invalid"
+      elevation="24"
+      color="blue-grey darken-1"
+      >Data Anda sedang di proses. Mohon menunggu...</v-snackbar
+    >
   </v-row>
 </template>
 
@@ -120,6 +129,9 @@ export default {
         // ValidationProvider,
         // ValidationObserver,
       },
+      loading: false,
+      snackbar: false,
+      timeout: 3000,
       length: null,
       width: null,
       bathroom: null,
@@ -201,20 +213,29 @@ export default {
     };
   },
   methods: {
-    modelPredict() {
-      this.predict =
-        -68531.9999133359 +
-        193290.7399441 * this.length +
-        53787.09955987 * this.width +
-        223041.25251717 * this.bathroom +
-        -94016.99467001 * this.table +
-        50481.71483865 * this.chair +
-        151462.80891942 * this.kitchen +
-        599669.48438946 * this.chooseAc +
-        60937.34930789 * this.chooseWifi +
-        -147062.92326872 * this.motorcyleParking +
-        83730.52196747 * this.carParking +
-        -14352.91188581 * this.location;
+    async modelPredict() {
+      try {
+        this.loading = true;
+        this.snackbar = true;
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        this.predict =
+          -68531.9999133359 +
+          193290.7399441 * this.length +
+          53787.09955987 * this.width +
+          223041.25251717 * this.bathroom +
+          -94016.99467001 * this.table +
+          50481.71483865 * this.chair +
+          151462.80891942 * this.kitchen +
+          599669.48438946 * this.chooseAc +
+          60937.34930789 * this.chooseWifi +
+          -147062.92326872 * this.motorcyleParking +
+          83730.52196747 * this.carParking +
+          -14352.91188581 * this.location;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.loading = false;
+      }
     },
   },
 };
