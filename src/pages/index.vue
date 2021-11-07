@@ -14,9 +14,9 @@
         <nuxt-link to="/menu" class="text-decoration-none">
           <v-btn
             depressed
-            color="grey darken-3"
+            color="pink lighten-1"
             class="white--text rounded-lg pr-2 pl-2"
-            elevation="15"
+            elevation="10"
           >
             Coba sekarang <v-icon>mdi-arrow-right</v-icon>
           </v-btn>

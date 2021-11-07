@@ -223,8 +223,8 @@
           </div>
           <v-btn
             class="mt-8 rounded-lg white--text"
-            color="deep-orange accent-2"
-            elevation="2"
+            color="pink lighten-1"
+            elevation="5"
             :loading="loading"
             :disabled="invalid"
             @click="modelPredict()"
