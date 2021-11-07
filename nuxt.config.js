@@ -53,6 +53,11 @@ export default {
 
     // https://pwa.nuxtjs.org/
     "@nuxtjs/pwa",
+    "@netsells/nuxt-hotjar",
+    {
+      id: "2689166",
+      sv: "6",
+    },
 
     // https://github.com/nuxt-community/sentry-module
     // "@nuxtjs/sentry",
