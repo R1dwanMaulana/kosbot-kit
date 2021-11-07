@@ -6,7 +6,7 @@
       <div class="mx-2">
         <h2 class="mt-10">Kosbot</h2>
         <p class="text-justify">
-          Kosbot adalah aplikasi berbasis web dengan teknologi Artificial Intelligent untuk
+          Kosbot adalah aplikasi berbasis web dengan teknologi AI untuk
           memprediksi harga kost di kota Malang. Aplikasi ini dapat membantu
           Anda untuk mencari kost yang tepat.
         </p>
