@@ -14,7 +14,7 @@
         <nuxt-link to="/menu" class="text-decoration-none">
           <v-btn
             depressed
-            color="deep-orange accent-2"
+            color="secondary"
             class="white--text rounded-lg pr-2 pl-2"
             elevation="15"
           >
