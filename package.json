@@ -49,6 +49,7 @@
     "start:firebase": "firebase serve --only functions,hosting"
   },
   "dependencies": {
+    "@netsells/nuxt-hotjar": "^0.1.3",
     "@nuxt/http": "^0.5.11",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/pwa": "^3.3.5",
