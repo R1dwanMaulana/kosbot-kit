@@ -8,8 +8,15 @@
             Apikasi prediksi harga kost, praktis dari web browser + support
             install (app native)
           </h2>
-          <p class="mt-8">Metode :</p>
-          <li>Multiple Linear Regression</li>
+          <p class="mt-8">Sumber data :</p>
+          <li>
+            <span class="text--light-blue accent-3 font-weight-bold"
+              ><a href="https://mamikos.com" class="text-decoration-none"
+                >Mamikos</a
+              ></span
+            >
+            untuk sumber data kost kota Malang
+          </li>
           <v-alert class="mt-5" border="top" type="warning" outlined>
             Apabila Anda ingin menyampaikan saran, kritik, dan menemukan
             kesalahan pada aplikasi. bisa dijelaskan di halaman Github issue
