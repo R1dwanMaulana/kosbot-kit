@@ -2,6 +2,9 @@
 
 > Nuxt.js + PWA + Vuetify.js + Firebase starter project
 
+## View
+<img src="src/static/view.png">
+
 ## Features
 
 This starter project includes official Nuxt.js modules for best PWA project:
@@ -54,4 +57,4 @@ For detailed explanation on how things work, check out the [Nuxt.js](https://git
 
 [MIT License](./license.md)
 
-Copyright (c) Jefry Dewangga (@jefrydco)
+<!-- Copyright (c) Jefry Dewangga (@jefrydco) -->
