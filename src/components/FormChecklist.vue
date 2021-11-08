@@ -4,12 +4,12 @@
       <validation-observer ref="observer" v-slot="{ invalid }">
         <form @submit.prevent="submit">
           <div class="d-flex justify-space-between">
-            <p class="mt-8">Panjang</p>
+            <p class="mt-8">Panjang kamar</p>
             <v-col class="mt-2 d-flex" cols="4" sm="3">
               <validation-provider
                 v-slot="{ errors }"
                 name="Panjang"
-                rules="required|numeric|max_value:6|min_value:2"
+                rules="required|double|max_value:6|min_value:2"
               >
                 <v-text-field
                   v-model="length"
@@ -23,12 +23,12 @@
             </v-col>
           </div>
           <div class="d-flex justify-space-between">
-            <p class="mt-8">Lebar</p>
+            <p class="mt-8">Lebar kamar</p>
             <v-col class="mt-2 d-flex" cols="4" sm="3">
               <validation-provider
                 v-slot="{ errors }"
                 name="Lebar"
-                rules="required|numeric|max_value:6|min_value:2"
+                rules="required|double|max_value:6|min_value:2"
               >
                 <v-text-field
                   v-model="width"
@@ -261,6 +261,7 @@ import {
   max_value,
   // eslint-disable-next-line camelcase
   min_value,
+  double,
 } from "vee-validate/dist/rules";
 import { extend, ValidationProvider, ValidationObserver } from "vee-validate";
 
@@ -281,6 +282,10 @@ extend("min_value", {
   // eslint-disable-next-line camelcase
   ...min_value,
   message: "{_field_} minimal 2 meter",
+});
+extend("double", {
+  ...double,
+  message: "gunakan tanda (.) untuk desimal",
 });
 export default {
   name: "FormChecklist",
