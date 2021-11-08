@@ -3,7 +3,7 @@
 > Nuxt.js + PWA + Vuetify.js + Firebase starter project
 
 ## View
-<img src="src/static/view.png">
+<img src="./src/static/view.png">
 
 ## Features
 
