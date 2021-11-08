@@ -256,7 +256,7 @@
 <script>
 import {
   required,
-  numeric,
+  // numeric,
   // eslint-disable-next-line camelcase
   max_value,
   // eslint-disable-next-line camelcase
@@ -269,10 +269,10 @@ extend("required", {
   ...required,
   message: "{_field_} tidak boleh kosong",
 });
-extend("numeric", {
-  ...numeric,
-  message: "{_field_} harus numerik",
-});
+// extend("numeric", {
+//   ...numeric,
+//   message: "{_field_} harus numerik",
+// });
 extend("max_value", {
   // eslint-disable-next-line camelcase
   ...max_value,
