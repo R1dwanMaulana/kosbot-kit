@@ -15,7 +15,7 @@
             <v-icon>mdi-airballoon</v-icon>
           </v-list-item-action> -->
           <v-list-item-content>
-            <v-list-item-title>Menu Properti</v-list-item-title>
+            <v-list-item-title>Fasilitas</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item nuxt to="/about">
