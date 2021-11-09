@@ -26,9 +26,8 @@ export default {
         name: "description",
         content: "Aplikasi prediksi harga kost",
       },
-      { property: "og:image", content: "/icon.png" },
+      // { property: "og:image", content: "/icon.png" },
       { name: "format-detection", content: "telephone=no" },
-      // { name: 'author', content: 'Reblood' },
       {
         name: "description",
         content: "Aplikasi prediksi harga kost",
