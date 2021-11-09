@@ -19,15 +19,10 @@
     "vuetifyjs",
     "firebase"
   ],
-  "homepage": "https://github.com/jefrydco/nuxt-pwa-vuetify-firebase-ssr#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jefrydco/nuxt-pwa-vuetify-firebase-ssr"
-  },
   "license": "MIT",
   "author": {
-    "name": "Jefry Dewangga",
-    "url": "https://jefrydco.id"
+    "name": "Ridwan Maulana",
+    "url": "https://riddev.tech"
   },
   "scripts": {
     "build": "nuxt build",
