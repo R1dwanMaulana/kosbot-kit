@@ -244,10 +244,12 @@
       </validation-observer>
       <v-snackbar
         v-model="snackbar"
+        color="primary"
+        text
         :timeout="timeout"
         :disabled="invalid"
         elevation="24"
-        >Sedang mencari harga kost untuk Anda...</v-snackbar
+        >Sedang mencari harga kost untuk Anda.</v-snackbar
       >
     </div>
   </div>
@@ -256,7 +258,6 @@
 <script>
 import {
   required,
-  // numeric,
   // eslint-disable-next-line camelcase
   max_value,
   // eslint-disable-next-line camelcase
@@ -269,10 +270,6 @@ extend("required", {
   ...required,
   message: "{_field_} tidak boleh kosong",
 });
-// extend("numeric", {
-//   ...numeric,
-//   message: "{_field_} harus numerik",
-// });
 extend("max_value", {
   // eslint-disable-next-line camelcase
   ...max_value,
