@@ -15,10 +15,18 @@
           <v-btn
             depressed
             color="pink lighten-1"
-            class="white--text rounded-lg pr-2 pl-2"
+            class="
+              white--text
+              rounded-lg
+              pr-1
+              pl-2
+              text-subtitle-2 text-caption
+              font-weight-medium
+            "
             elevation="10"
           >
-            Coba sekarang <v-icon>mdi-arrow-right</v-icon>
+            Coba sekarang
+            <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
