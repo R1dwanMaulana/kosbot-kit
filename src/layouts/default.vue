@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" fixed app>
       <v-list dense>
-        <v-list-item nuxt to="/">
+        <v-list-item nuxt to="/home">
           <!-- <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action> -->
