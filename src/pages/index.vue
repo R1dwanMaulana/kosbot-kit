@@ -4,7 +4,7 @@
       <img src="/header.jpg" alt="" width="350" />
       <br />
       <div class="mx-2">
-        <h2 class="mt-10">Kosbot test</h2>
+        <h2 class="mt-10">Kosbot123</h2>
         <p class="text-justify">
           Kosbot adalah aplikasi berbasis web app dengan teknologi
           <strong>AI</strong> untuk memprediksi harga kost di kota Malang.
