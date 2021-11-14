@@ -61,7 +61,7 @@
             </p>
             <h3>Apa itu metode Multiple Linear Regression?</h3>
             <p>
-              Regresi Linier Berganda merupakan suatu analisis asosiasi yang
+              Multiple linear regression merupakan suatu analisis asosiasi yang
               digunakan secara bersamaan untuk meneliti pengaruh dua atau lebih
               variabel bebas terhadap satu variabel tegantung dengan skala
               interval.
