@@ -51,8 +51,13 @@
             <p>
               Kosbot adalah sebuah aplikasi yang mampu memprediksikan harga
               kost. Sistem tersebut sudah tertanam teknologi Machine Learning
-              yang mampu belajar secara mandiri dari data yang bersumber dari
-              website Mamikos.
+              dengan sumber data dari platform Mamikos.
+            </p>
+            <h3>Apa itu Machine Learning</h3>
+            <p>
+              Machine learning merupakan suatu pembelajaran pada komputer untuk
+              meningkatkan kemampuan secara mandiri tanpa terprogram secara
+              jelas.
             </p>
             <h3>Metode apa yang digunakan?</h3>
             <p>
