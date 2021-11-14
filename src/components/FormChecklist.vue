@@ -231,7 +231,7 @@
           >
             Cek
           </v-btn>
-          <p class="mt-6 grey darken-1 white--text rounded-lg px-3 py-2">
+          <p class="mt-6 grey lighten-3 black--text rounded-md px-3 py-2">
             {{
               new Intl.NumberFormat("id-ID", {
                 style: "currency",
