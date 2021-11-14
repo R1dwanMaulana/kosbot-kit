@@ -12,35 +12,29 @@ export default {
 
   // https://nuxtjs.org/api/configuration-head
   head: {
-    titleTemplate(title) {
-      // if (title) {
-      //   return `${title} - Nuxt PWA Vuetify Firebase SSR`;
-      // }
-      return "Kosbot | Aplikasi prediksi harga kost";
-    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: "Aplikasi prediksi harga kost",
-      },
-      // { property: "og:image", content: "/icon.png" },
-      { name: "format-detection", content: "telephone=no" },
-      {
-        name: "description",
-        content: "Aplikasi prediksi harga kost",
-      },
-      {
-        property: "og:title",
-        content: "Kosbot | Aplikasi prediksi harga kost",
-      },
-      {
-        property: "og:description",
-        content: "Aplikasi prediksi harga kost",
-      },
-      { property: "og:type", content: "website" },
+      // {
+      //   hid: "description",
+      //   name: "description",
+      //   content: "Aplikasi prediksi harga kost",
+      // },
+      // // { property: "og:image", content: "/icon.png" },
+      // { name: "format-detection", content: "telephone=no" },
+      // {
+      //   name: "description",
+      //   content: "Aplikasi prediksi harga kost",
+      // },
+      // {
+      //   property: "og:title",
+      //   content: "Kosbot | Aplikasi prediksi harga kost",
+      // },
+      // {
+      //   property: "og:description",
+      //   content: "Aplikasi prediksi harga kost",
+      // },
+      // { property: "og:type", content: "website" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
