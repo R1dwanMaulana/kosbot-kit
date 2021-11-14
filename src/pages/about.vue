@@ -31,3 +31,36 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+export default {
+  head: {
+    title: "Tentang Kosbot | Aplikasi Prediksi Harga Kost",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Sebuah aplikasi yang dapat membantu para pengguna untuk memprediksikan harga kost di kota Malang",
+      },
+      // { property: "og:image", content: "/icon.png" },
+      { name: "format-detection", content: "telephone=no" },
+      {
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
+      },
+      {
+        property: "og:title",
+        content: "Tentang Kosbot | Aplikasi Prediksi Harga Kost",
+      },
+      {
+        property: "og:description",
+        content:
+          "Sebuah aplikasi yang dapat membantu para pengguna untuk memprediksikan harga kost di kota Malang",
+      },
+    ],
+  },
+};
+</script>

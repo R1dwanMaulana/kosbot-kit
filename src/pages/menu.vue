@@ -13,5 +13,33 @@ export default {
   components: {
     FormChecklist,
   },
+  head: {
+    title: "Fasilitas - Kosbot | Aplikasi Prediksi Harga Kost",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Menu Fasilitas ini digunakan untuk memilih fasilitas kost yang di inginkan",
+      },
+      // { property: "og:image", content: "/icon.png" },
+      { name: "format-detection", content: "telephone=no" },
+      {
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
+      },
+      {
+        property: "og:title",
+        content: "Fasilitas - Kosbot | Aplikasi Prediksi Harga Kost",
+      },
+      {
+        property: "og:description",
+        content:
+          "Menu Fasilitas ini digunakan untuk memilih fasilitas kost yang di inginkan",
+      },
+    ],
+  },
 };
 </script>

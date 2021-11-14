@@ -51,5 +51,34 @@ export default {
       ],
     };
   },
+  head: {
+    title: "Kosbot | Aplikasi Prediksi Harga Kost",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
+      },
+      // { property: "og:image", content: "/icon.png" },
+      { name: "format-detection", content: "telephone=no" },
+      {
+        name: "description",
+        content: "Aplikasi prediksi harga kost",
+      },
+      {
+        property: "og:title",
+        content: "Kosbot | Aplikasi Prediksi Harga Kost",
+      },
+      {
+        property: "og:description",
+        content: "Aplikasi prediksi harga kost",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Kosbot" },
+      { property: "og:url", content: "https://kosbot-kit.web.app/" },
+    ],
+  },
 };
 </script>
