@@ -53,7 +53,7 @@
               kost. Sistem tersebut sudah tertanam teknologi Machine Learning
               dengan sumber data dari platform Mamikos.
             </p>
-            <h3>Apa itu Machine Learning</h3>
+            <h3>Apa itu Machine Learning?</h3>
             <p>
               Machine learning merupakan suatu pembelajaran pada komputer untuk
               meningkatkan kemampuan secara mandiri tanpa terprogram secara
@@ -73,10 +73,19 @@
             </p>
             <h3>Bagaimana menentukan harga kost dengan metode MLR?</h3>
             <p>
-              Pengguna akan memilih fasilitas dan berdasarkan
-              keinginannya.Setelah memilih fasilitas pengguna harus mengklik
-              tombol cek, maka sistem akan memproses data dari inputan. Sehingga
-              nantinya sistem akan memberi tahu kisaran harga sewa / bulan.
+              Mencari bentuk hubungan (relasi) linear antara variabel terikat
+              (harga) dengan variabel bebas(fasilitas & lokasi).
+            </p>
+            <h3>Bagaimana menggunakan aplikasi Kosbot?</h3>
+            <p>
+              Pengguna terlebih dahulu akan masuk dihalaman home yang berisi
+              pengenalan aplikasi. Selanjutnya pengguna mengklik tombol coba
+              sekarang, maka langsung diarahkan ke halaman menu fasilitas, lalu
+              pengguna bisa memilih fasilitas yang diinginkan. Jika semua sudah,
+              maka langkah terakhir klik tombol cek. Sistem akan memproses data
+              tersebut dan mencari kisaran harga yang cocok. Setelah sistem
+              selesai memproses, maka tampilan harga sewa / bulan akan tampil
+              dibagian bawah halaman.
             </p>
           </v-card-text>
           <v-divider></v-divider>
