@@ -3,7 +3,10 @@
 > Nuxt.js + PWA + Vuetify.js + Firebase starter project
 
 ## View
-<img src="./src/static/view.png" width="250px">
+<img src="./src/static/view.png" width="250px"> <br/>
+
+## Model Accuracy
+<img src="./src/static/accuracy.png" width="300px"> <br/>
 
 ## Features
 
