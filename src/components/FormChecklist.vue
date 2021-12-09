@@ -369,18 +369,30 @@ export default {
         this.snackbar = true;
         await new Promise((resolve) => setTimeout(resolve, 5000));
         this.predict =
-          -68531.9999133359 +
-          193290.7399441 * this.length +
-          53787.09955987 * this.width +
-          223041.25251717 * this.bathroom +
-          -94016.99467001 * this.table +
-          50481.71483865 * this.chair +
-          151462.80891942 * this.kitchen +
-          599669.48438946 * this.chooseAc +
-          60937.34930789 * this.chooseWifi +
-          -147062.92326872 * this.motorcyleParking +
-          83730.52196747 * this.carParking +
-          -14352.91188581 * this.location;
+          // -68531.9999133359 +
+          // 193290.7399441 * this.length +
+          // 53787.09955987 * this.width +
+          // 223041.25251717 * this.bathroom +
+          // -94016.99467001 * this.table +
+          // 50481.71483865 * this.chair +
+          // 151462.80891942 * this.kitchen +
+          // 599669.48438946 * this.chooseAc +
+          // 60937.34930789 * this.chooseWifi +
+          // -147062.92326872 * this.motorcyleParking +
+          // 83730.52196747 * this.carParking +
+          // -14352.91188581 * this.location;
+          -148047.27476719278 +
+          164974.23423571 * this.length +
+          76671.12127056 * this.width +
+          227707.434326 * this.bathroom +
+          -56106.94865448 * this.table +
+          28947.18630694 * this.chair +
+          117698.12077464 * this.kitchen +
+          600114.34157571 * this.chooseAc +
+          56860.15723041 * this.chooseWifi +
+          -18779.72174119 * this.motorcyleParking +
+          71576.69697222 * this.carParking +
+          -17839.86082162 * this.location;
       } catch (error) {
         console.log(error);
       } finally {
