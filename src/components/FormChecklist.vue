@@ -319,6 +319,9 @@
                 <tr class="grey darken-1 white--text">
                   <td>Harga sewa/bulan</td>
                   <td>
+                    <div v-if="loading">
+                      <p>sedang memuat..</p>
+                    </div>
                     {{
                       new Intl.NumberFormat("id-ID", {
                         style: "currency",
@@ -338,20 +341,20 @@
           </v-card-actions>
           <!-- <v-divider></v-divider> -->
           <p class="mt-6 red--text font-italic">*Keterangan Fasilitas</p>
-          <v-simple-table width="100">
+          <v-simple-table width="100" dark>
             <template v-slot:default>
               <thead>
-                <tr class="cyan darken-1">
+                <tr>
                   <th class="text-left white--text">Value</th>
                   <th class="text-left white--text">Keterangan</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>1</td>
                   <td>Iya</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>0</td>
                   <td>Tidak</td>
                 </tr>
@@ -359,44 +362,44 @@
             </template>
           </v-simple-table>
           <p class="mt-6 red--text font-italic">*Keterangan Lokasi</p>
-          <v-simple-table width="100">
+          <v-simple-table width="100" dark>
             <template v-slot:default>
               <thead>
-                <tr class="cyan darken-1">
+                <tr class="">
                   <th class="text-left white--text">Value</th>
                   <th class="text-left white--text">Keterangan</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>1</td>
                   <td>Kec.Lowokwaru</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>2</td>
                   <td>Lowokwaru</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>3</td>
                   <td>Kec.Klojen</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>4</td>
                   <td>Klojen</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>5</td>
                   <td>Kec.Sukun</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>6</td>
                   <td>Sukun</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>7</td>
                   <td>Kec.Blimbing</td>
                 </tr>
-                <tr class="grey lighten-2">
+                <tr>
                   <td>8</td>
                   <td>Blimbing</td>
                 </tr>
