@@ -24,7 +24,7 @@
           <h5 class="mt-15 font-weight-regular">
             Contents licensed under CC BY-NC-SA 4.0. <br />Made using Nuxt.js
             and Vuetify. Hosted on Vercel. <br />
-            MIT License © 2021 - present | Ridwan Maulana.
+            MIT License © 2021 - {{ copyrightYear }} | Ridwan Maulana.
           </h5>
         </div>
       </v-card>
@@ -34,6 +34,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      copyrightYear: new Date().getFullYear(),
+    };
+  },
   head: {
     title: "Tentang Kosbot | Aplikasi Prediksi Harga Kost",
     meta: [
