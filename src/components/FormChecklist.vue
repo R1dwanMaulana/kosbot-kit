@@ -227,11 +227,11 @@
             elevation="5"
             :loading="loading"
             :disabled="invalid"
-            @click="modelPredict()"
+            @click="modelPredict((dialog = !dialog))"
           >
             Cek
           </v-btn>
-          <p class="mt-6 grey lighten-3 black--text rounded-md px-3 py-2">
+          <!-- <p class="mt-6 grey lighten-3 black--text rounded-md px-3 py-2">
             {{
               new Intl.NumberFormat("id-ID", {
                 style: "currency",
@@ -239,10 +239,10 @@
               }).format(predict)
             }}
             / bulan
-          </p>
+          </p> -->
         </form>
       </validation-observer>
-      <v-snackbar
+      <!-- <v-snackbar
         v-model="snackbar"
         color="primary"
         text
@@ -250,8 +250,162 @@
         :disabled="invalid"
         elevation="24"
         >Sedang mencari harga kost untuk Anda.</v-snackbar
-      >
+      > -->
     </div>
+    <v-dialog
+      v-model="dialog"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+      width="500"
+      scrollable
+    >
+      <v-card class="rounded-lg">
+        <v-card-text class="mt-4">
+          <h3 class="mx-2 mb-3">Rincian Prediksi Harga Kost Anda Adalah:</h3>
+          <v-simple-table>
+            <template v-slot:default>
+              <thead>
+                <tr class="blue-grey darken-4">
+                  <th class="text-left white--text">Fasilitas</th>
+                  <th class="text-left white--text">Value(hasil)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Panjang Kamar</td>
+                  <td>{{ length }} meter</td>
+                </tr>
+                <tr>
+                  <td>Lebar Kamar</td>
+                  <td>{{ width }} meter</td>
+                </tr>
+                <tr>
+                  <td>Kamar mandi dalam</td>
+                  <td>{{ bathroom }}</td>
+                </tr>
+                <tr>
+                  <td>Meja belajar</td>
+                  <td>{{ table }}</td>
+                </tr>
+                <tr>
+                  <td>Kursi belajar</td>
+                  <td>{{ chair }}</td>
+                </tr>
+                <tr>
+                  <td>Dapur</td>
+                  <td>{{ kitchen }}</td>
+                </tr>
+                <tr>
+                  <td>AC</td>
+                  <td>{{ chooseAc }}</td>
+                </tr>
+                <tr>
+                  <td>WiFi</td>
+                  <td>{{ chooseWifi }}</td>
+                </tr>
+                <tr>
+                  <td>Parkir motor</td>
+                  <td>{{ motorcyleParking }}</td>
+                </tr>
+                <tr>
+                  <td>Parkir mobil</td>
+                  <td>{{ carParking }}</td>
+                </tr>
+                <tr>
+                  <td>Lokasi</td>
+                  <td>{{ location }}</td>
+                </tr>
+                <tr class="grey darken-1 white--text">
+                  <td>Harga sewa/bulan</td>
+                  <td>
+                    {{
+                      new Intl.NumberFormat("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                        maximumSignificantDigits: 3,
+                      }).format(predict)
+                    }}
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" text @click="dialog = false"> Oke </v-btn>
+          </v-card-actions>
+          <!-- <v-divider></v-divider> -->
+          <p class="mt-6 red--text font-italic">*Keterangan Fasilitas</p>
+          <v-simple-table width="100">
+            <template v-slot:default>
+              <thead>
+                <tr class="cyan darken-1">
+                  <th class="text-left white--text">Value</th>
+                  <th class="text-left white--text">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="grey lighten-2">
+                  <td>1</td>
+                  <td>Iya</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>0</td>
+                  <td>Tidak</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+          <p class="mt-6 red--text font-italic">*Keterangan Lokasi</p>
+          <v-simple-table width="100">
+            <template v-slot:default>
+              <thead>
+                <tr class="cyan darken-1">
+                  <th class="text-left white--text">Value</th>
+                  <th class="text-left white--text">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="grey lighten-2">
+                  <td>1</td>
+                  <td>Kec.Lowokwaru</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>2</td>
+                  <td>Lowokwaru</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>3</td>
+                  <td>Kec.Klojen</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>4</td>
+                  <td>Klojen</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>5</td>
+                  <td>Kec.Sukun</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>6</td>
+                  <td>Sukun</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>7</td>
+                  <td>Kec.Blimbing</td>
+                </tr>
+                <tr class="grey lighten-2">
+                  <td>8</td>
+                  <td>Blimbing</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -292,8 +446,9 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       loading: false,
-      snackbar: false,
+      // snackbar: false,
       timeout: 3000,
       length: null,
       width: null,
@@ -366,7 +521,7 @@ export default {
     async modelPredict() {
       try {
         this.loading = true;
-        this.snackbar = true;
+        // this.snackbar = true;
         await new Promise((resolve) => setTimeout(resolve, 5000));
         this.predict =
           // -68531.9999133359 +
