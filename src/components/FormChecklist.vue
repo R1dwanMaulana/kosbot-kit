@@ -261,7 +261,11 @@
       scrollable
     >
       <v-card>
-        <v-card-text class="mt-4">
+        <div v-if="loading" class="text-center mt-10">
+          <img src="/search.gif" />
+          <p class="mt-2 font-weight-bold">Sedang mencari...</p>
+        </div>
+        <v-card-text v-if="!loading" class="mt-4">
           <h3 class="mx-2 mb-3">Rincian Prediksi Harga Kost Anda Adalah:</h3>
           <v-simple-table>
             <template v-slot:default>
@@ -319,9 +323,6 @@
                 <tr class="grey darken-1 white--text">
                   <td>Harga sewa/bulan</td>
                   <td>
-                    <div v-if="loading">
-                      <p>sedang memuat..</p>
-                    </div>
                     {{
                       new Intl.NumberFormat("id-ID", {
                         style: "currency",
