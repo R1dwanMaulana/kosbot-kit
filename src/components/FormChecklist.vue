@@ -260,7 +260,7 @@
       width="500"
       scrollable
     >
-      <v-card class="rounded-lg">
+      <v-card>
         <v-card-text class="mt-4">
           <h3 class="mx-2 mb-3">Rincian Prediksi Harga Kost Anda Adalah:</h3>
           <v-simple-table>
