@@ -282,7 +282,7 @@
                 </tr>
                 <tr>
                   <td>Kamar mandi dalam</td>
-                  <td>{{ bathroom }}</td>
+                  <td>{{ toString(bathroom) }}</td>
                 </tr>
                 <tr>
                   <td>Meja belajar</td>
