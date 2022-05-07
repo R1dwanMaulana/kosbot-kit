@@ -276,8 +276,8 @@
               }).format(predict)
             }}
             / bulan, yang bertempat di lokasi
-            <span v-if="location === 1">Kecamatan Lowokaru</span>
-            <span v-if="location === 2">Lowokaru</span>
+            <span v-if="location === 1">Kecamatan Lowokwaru</span>
+            <span v-if="location === 2">Lowokwaru</span>
             <span v-if="location === 3">Kecamatan Klojen</span>
             <span v-if="location === 4">Klojen</span>
             <span v-if="location === 5">Kecamatan Sukun</span>
@@ -351,8 +351,8 @@
                       </tr>
                       <tr>
                         <td>Lokasi</td>
-                        <td v-if="location === 1">Kecamatan Lowokaru</td>
-                        <td v-if="location === 2">Lowokaru</td>
+                        <td v-if="location === 1">Kecamatan Lowokwaru</td>
+                        <td v-if="location === 2">Lowokwaru</td>
                         <td v-if="location === 3">Kecamatan Klojen</td>
                         <td v-if="location === 4">Klojen</td>
                         <td v-if="location === 5">Kecamatan Sukun</td>
