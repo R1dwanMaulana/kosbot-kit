@@ -262,7 +262,7 @@
     >
       <v-card>
         <div v-if="loading" class="text-center mt-10">
-          <img src="/test.gif" width="200px" />
+          <img src="/bot-loading.gif" width="200px" />
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-4">
