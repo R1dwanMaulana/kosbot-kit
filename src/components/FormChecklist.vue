@@ -262,7 +262,7 @@
     >
       <v-card>
         <div v-if="loading" class="text-center mt-10">
-          <img src="/bot2.gif" width="200px" />
+          <img src="/test.gif" width="200px" />
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-4">
@@ -568,7 +568,7 @@ export default {
       try {
         this.loading = true;
         // this.snackbar = true;
-        await new Promise((resolve) => setTimeout(resolve, 8000));
+        await new Promise((resolve) => setTimeout(resolve, 7000));
         this.predict =
           // -68531.9999133359 +
           // 193290.7399441 * this.length +
