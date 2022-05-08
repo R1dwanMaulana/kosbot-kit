@@ -229,7 +229,7 @@
             :disabled="invalid"
             @click="modelPredict((dialog = !dialog))"
           >
-            Cek
+            Cari
           </v-btn>
           <!-- <p class="mt-6 grey lighten-3 black--text rounded-md px-3 py-2">
             {{
@@ -262,7 +262,7 @@
     >
       <v-card>
         <div v-if="loading" class="text-center mt-10">
-          <img src="/test.gif" width="200px" />
+          <img src="/loading.gif" width="200px" />
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-4">
