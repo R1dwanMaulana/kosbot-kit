@@ -262,7 +262,7 @@
     >
       <v-card>
         <div v-if="loading" class="text-center mt-10">
-          <img src="/search.gif" />
+          <img src="/bot2.gif" width="200px" />
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-4">
@@ -283,13 +283,13 @@
             <span v-if="location === 5">Kecamatan Sukun</span>
             <span v-if="location === 6">Sukun</span>
             <span v-if="location === 7">Kecamatan Blimbing</span>
-            <span v-if="location === 8">Blimbing</span>. Berikut rinciannya:
+            <span v-if="location === 8">Blimbing</span>.
           </v-alert>
 
           <v-expansion-panels accordion>
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Rincian hasil prediksi</v-expansion-panel-header
+                >Detail prediksi</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-simple-table>
@@ -495,7 +495,7 @@ export default {
       dialog: false,
       loading: false,
       // snackbar: false,
-      timeout: 3000,
+      // timeout: 3000,
       length: null,
       width: null,
       bathroom: null,
@@ -568,7 +568,7 @@ export default {
       try {
         this.loading = true;
         // this.snackbar = true;
-        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await new Promise((resolve) => setTimeout(resolve, 8000));
         this.predict =
           // -68531.9999133359 +
           // 193290.7399441 * this.length +
