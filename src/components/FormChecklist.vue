@@ -223,7 +223,7 @@
           </div>
           <v-btn
             class="mt-8 rounded-lg white--text"
-            color="pink lighten-1"
+            color="amber darken-3"
             elevation="5"
             :loading="loading"
             :disabled="invalid"
@@ -423,7 +423,7 @@
           </v-expansion-panels>
           <v-btn
             block
-            color="pink lighten-1"
+            color="blue-grey darken-3"
             class="mt-6 rounded-lg white--text"
             @click="dialog = false"
           >
