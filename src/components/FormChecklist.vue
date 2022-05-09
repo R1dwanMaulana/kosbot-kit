@@ -304,6 +304,7 @@
                       Sedang
                     </td>
                     <td v-if="length >= '4' && width >= '4'">besar</td>
+                    <td v-else>-</td>
                   </tr>
                 </tbody>
               </template>
