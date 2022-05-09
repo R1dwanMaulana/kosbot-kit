@@ -14,7 +14,7 @@
         <nuxt-link to="/menu" class="text-decoration-none">
           <v-btn
             depressed
-            color="pink lighten-1"
+            color="amber darken-3"
             class="
               white--text
               rounded-lg
