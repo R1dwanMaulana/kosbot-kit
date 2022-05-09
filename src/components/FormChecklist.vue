@@ -266,13 +266,28 @@
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-10">
+          <!-- <v-alert
+            v-model="alert"
+            dismissible
+            color="cyan"
+            border="left"
+            elevation="2"
+            colored-border
+            icon="mdi-check-decagram"
+          >
+            Pencarian Berhasil
+          </v-alert> -->
+          <v-alert outlined type="success" class="rounded-lg" text>
+            Pencarian Berhasil
+          </v-alert>
+
           <v-card>
             <v-simple-table>
               <template v-slot:default>
                 <tbody>
-                  <tr class="font-weight-bold">
+                  <tr>
                     <td>Estimasi Harga</td>
-                    <td>
+                    <td class="font-weight-bold">
                       {{
                         new Intl.NumberFormat("id-ID", {
                           style: "currency",
@@ -288,9 +303,12 @@
                     <td
                       v-if="
                         (length === '2' && width === '2') ||
+                        (length === '2.5' && width === '2') ||
                         (length === '2' && width === '3') ||
+                        (length === '2.5' && width === '3.5') ||
                         (length === '3' && width === '2')
                       "
+                      class="font-weight-bold"
                     >
                       Kecil
                     </td>
@@ -300,11 +318,17 @@
                         (length === '3' && width === '4') ||
                         (length === '4' && width === '3')
                       "
+                      class="font-weight-bold"
                     >
                       Sedang
                     </td>
-                    <td v-if="length >= '4' && width >= '4'">besar</td>
-                    <td v-else>-</td>
+                    <td
+                      v-if="length >= '4' && width >= '4'"
+                      class="font-weight-bold"
+                    >
+                      Besar
+                    </td>
+                    <!-- <td v-else>-</td> -->
                   </tr>
                 </tbody>
               </template>
