@@ -399,14 +399,77 @@
                       </tr>
                       <tr>
                         <td>Lokasi</td>
-                        <td v-if="location === 1">Kecamatan Lowokwaru</td>
-                        <td v-if="location === 2">Lowokwaru</td>
-                        <td v-if="location === 3">Kecamatan Klojen</td>
-                        <td v-if="location === 4">Klojen</td>
-                        <td v-if="location === 5">Kecamatan Sukun</td>
-                        <td v-if="location === 6">Sukun</td>
-                        <td v-if="location === 7">Kecamatan Blimbing</td>
-                        <td v-if="location === 8">Blimbing</td>
+                        <td v-if="location === 1">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/fbL7Wuh2RJpuaFyw7"
+                            target="_blank"
+                            class="black--text"
+                            >Kecamatan Lowokwaru</a
+                          >
+                        </td>
+                        <td v-if="location === 2">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/Ayxih2sqdbwpxPom8"
+                            target="_blank"
+                            class="black--text"
+                            >Lowokwaru</a
+                          >
+                        </td>
+                        <td v-if="location === 3">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                            target="_blank"
+                            class="black--text"
+                            >Kecamatan Klojen</a
+                          >
+                        </td>
+                        <td v-if="location === 4">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                            target="_blank"
+                            class="black--text"
+                            >Klojen</a
+                          >
+                        </td>
+                        <td v-if="location === 5">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/mh2yT7119irget459"
+                            target="_blank"
+                            class="black--text"
+                            >Kecamatan Sukun</a
+                          >
+                        </td>
+                        <td v-if="location === 6">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/mh2yT7119irget459"
+                            target="_blank"
+                            >Sukun</a
+                          >
+                        </td>
+                        <td v-if="location === 7">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                            target="_blank"
+                            class="black--text"
+                            >Kecamatan Blimbing</a
+                          >
+                        </td>
+                        <td v-if="location === 8">
+                          <v-icon>mdi-map-marker </v-icon>
+                          <a
+                            href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                            target="_blank"
+                            class="black--text"
+                            >Blimbing</a
+                          >
+                        </td>
                       </tr>
                     </tbody>
                   </template>
