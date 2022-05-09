@@ -265,41 +265,64 @@
           <img src="/loading.gif" width="200px" />
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
-        <v-card-text v-if="!loading" class="mt-4">
-          <v-alert outlined type="info" text class="rounded-lg">
-            Estimasi harga sewa kost yang Anda inginkan sekitar
-            {{
-              new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-                maximumSignificantDigits: 3,
-              }).format(predict)
-            }}
-            / bulan, yang bertempat di lokasi
-            <span v-if="location === 1">Kecamatan Lowokwaru</span>
-            <span v-if="location === 2">Lowokwaru</span>
-            <span v-if="location === 3">Kecamatan Klojen</span>
-            <span v-if="location === 4">Klojen</span>
-            <span v-if="location === 5">Kecamatan Sukun</span>
-            <span v-if="location === 6">Sukun</span>
-            <span v-if="location === 7">Kecamatan Blimbing</span>
-            <span v-if="location === 8">Blimbing</span>.
-          </v-alert>
-
+        <v-card-text v-if="!loading" class="mt-10">
+          <v-card>
+            <v-simple-table>
+              <template v-slot:default>
+                <tbody>
+                  <tr class="font-weight-bold">
+                    <td>Estimasi Harga</td>
+                    <td>
+                      {{
+                        new Intl.NumberFormat("id-ID", {
+                          style: "currency",
+                          currency: "IDR",
+                          maximumSignificantDigits: 3,
+                        }).format(predict)
+                      }}
+                      / bulan
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tipe Kamar</td>
+                    <td
+                      v-if="
+                        (length === '2' && width === '2') ||
+                        (length === '2' && width === '3') ||
+                        (length === '3' && width === '2')
+                      "
+                    >
+                      Kecil
+                    </td>
+                    <td
+                      v-if="
+                        (length === '3' && width === '3') ||
+                        (length === '3' && width === '4') ||
+                        (length === '4' && width === '3')
+                      "
+                    >
+                      Sedang
+                    </td>
+                    <td v-if="length >= '4' && width >= '4'">besar</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-card>
           <v-expansion-panels accordion>
             <v-expansion-panel>
-              <v-expansion-panel-header
-                >Detail prediksi</v-expansion-panel-header
+              <v-expansion-panel-header max-width="200"
+                >Detail</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-simple-table>
                   <template v-slot:default>
-                    <thead>
+                    <!-- <thead>
                       <tr class="blue-grey darken-4">
                         <th class="text-left white--text">Fasilitas</th>
                         <th class="text-left white--text">Value(hasil)</th>
                       </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
                       <tr>
                         <td>Panjang Kamar</td>
@@ -364,91 +387,23 @@
                   </template>
                 </v-simple-table>
                 <v-divider></v-divider>
-                <v-card-actions>
+                <!-- <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" text @click="dialog = false">
                     Oke
                   </v-btn>
-                </v-card-actions>
+                </v-card-actions> -->
               </v-expansion-panel-content>
             </v-expansion-panel>
           </v-expansion-panels>
-          <!-- <v-simple-table>
-            <template v-slot:default>
-              <thead>
-                <tr class="blue-grey darken-4">
-                  <th class="text-left white--text">Fasilitas</th>
-                  <th class="text-left white--text">Value(hasil)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Panjang Kamar</td>
-                  <td>{{ length }} meter</td>
-                </tr>
-                <tr>
-                  <td>Lebar Kamar</td>
-                  <td>{{ width }} meter</td>
-                </tr>
-                <tr>
-                  <td>Kamar mandi dalam</td>
-                  <td v-if="bathroom === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Meja belajar</td>
-                  <td v-if="table === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Kursi belajar</td>
-                  <td v-if="chair === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Dapur</td>
-                  <td v-if="kitchen === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>AC</td>
-                  <td v-if="chooseAc === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>WiFi</td>
-                  <td v-if="chooseWifi === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Parkir motor</td>
-                  <td v-if="motorcyleParking === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Parkir mobil</td>
-                  <td v-if="carParking === 1">Iya</td>
-                  <td v-else>Tidak</td>
-                </tr>
-                <tr>
-                  <td>Lokasi</td>
-                  <td v-if="location === 1">Kecamatan Lowokaru</td>
-                  <td v-if="location === 2">Lowokaru</td>
-                  <td v-if="location === 3">Kecamatan Klojen</td>
-                  <td v-if="location === 4">Klojen</td>
-                  <td v-if="location === 5">Kecamatan Sukun</td>
-                  <td v-if="location === 6">Sukun</td>
-                  <td v-if="location === 7">Kecamatan Blimbing</td>
-                  <td v-if="location === 8">Blimbing</td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table> -->
-          <!-- <v-divider></v-divider>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="dialog = false"> Oke </v-btn>
-          </v-card-actions> -->
+          <v-btn
+            block
+            color="pink lighten-1"
+            class="mt-6 rounded-lg white--text"
+            @click="dialog = false"
+          >
+            Oke
+          </v-btn>
         </v-card-text>
       </v-card>
     </v-dialog>
