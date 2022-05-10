@@ -366,12 +366,6 @@
                   <v-expansion-panel-content>
                     <v-simple-table>
                       <template v-slot:default>
-                        <!-- <thead>
-                      <tr class="blue-grey darken-4">
-                        <th class="text-left white--text">Fasilitas</th>
-                        <th class="text-left white--text">Value(hasil)</th>
-                      </tr>
-                    </thead> -->
                         <tbody>
                           <tr>
                             <td>Panjang Kamar</td>
