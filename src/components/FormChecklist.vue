@@ -266,30 +266,32 @@
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-10">
-          <v-alert outlined type="success" class="rounded-lg" text>
-            Pencarian Berhasil
-          </v-alert>
+          <v-row justify="center" align="center">
+            <v-col cols="12" sm="8" md="6">
+              <v-alert outlined type="success" class="rounded-lg" text>
+                Pencarian Berhasil
+              </v-alert>
 
-          <v-card>
-            <v-simple-table>
-              <template v-slot:default>
-                <tbody>
-                  <tr>
-                    <td>Estimasi Harga</td>
-                    <td class="font-weight-bold">
-                      {{
-                        new Intl.NumberFormat("id-ID", {
-                          style: "currency",
-                          currency: "IDR",
-                          maximumSignificantDigits: 3,
-                        }).format(predict)
-                      }}
-                      / bulan
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tipe Kamar</td>
-                    <!-- <td
+              <v-card>
+                <v-simple-table>
+                  <template v-slot:default>
+                    <tbody>
+                      <tr>
+                        <td>Estimasi Harga</td>
+                        <td class="font-weight-bold">
+                          {{
+                            new Intl.NumberFormat("id-ID", {
+                              style: "currency",
+                              currency: "IDR",
+                              maximumSignificantDigits: 3,
+                            }).format(predict)
+                          }}
+                          / bulan
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Tipe Kamar</td>
+                        <!-- <td
                       v-if="
                         (length === '2' && width === '2') ||
                         (length === '2.5' && width === '2') ||
@@ -317,243 +319,262 @@
                     >
                       Besar
                     </td> -->
-                    <!-- (length === '2' && width === '2') ||
+                        <!-- (length === '2' && width === '2') ||
                         (length === '2.5' && width === '2') ||
                         (length === '2' && width === '3') ||
                         (length === '2.5' && width === '3.5') ||
                         (length === '3' && width === '2') -->
-                    <td
-                      v-if="length < '4' && width < '4'"
-                      class="font-weight-bold"
-                    >
-                      Kecil
-                    </td>
-                    <td
-                      v-if="
-                        (length === '4' && width === '4') ||
-                        (length === '4.5' && width === '4') ||
-                        (length === '3' && width === '4') ||
-                        (length === '3.5' && width === '4') ||
-                        (length === '4' && width === '3')
-                      "
-                      class="font-weight-bold"
-                    >
-                      Sedang
-                    </td>
-                    <td
-                      v-if="
-                        (length >= '5' && width >= '5') ||
-                        (length === '4' && width === '5') ||
-                        (length === '5' && width === '4')
-                      "
-                      class="font-weight-bold"
-                    >
-                      Besar
-                    </td>
-                    <!-- <td v-else>-</td> -->
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </v-card>
-          <v-expansion-panels accordion>
-            <v-expansion-panel>
-              <v-expansion-panel-header max-width="200"
-                >Detail</v-expansion-panel-header
-              >
-              <v-expansion-panel-content>
-                <v-simple-table>
-                  <template v-slot:default>
-                    <!-- <thead>
+                        <td
+                          v-if="length < '4' && width < '4'"
+                          class="font-weight-bold"
+                        >
+                          Kecil
+                        </td>
+                        <td
+                          v-if="
+                            (length === '4' && width === '4') ||
+                            (length === '4.5' && width === '4') ||
+                            (length === '3' && width === '4') ||
+                            (length === '3.5' && width === '4') ||
+                            (length === '4' && width === '3')
+                          "
+                          class="font-weight-bold"
+                        >
+                          Sedang
+                        </td>
+                        <td
+                          v-if="
+                            (length >= '5' && width >= '5') ||
+                            (length === '4' && width === '5') ||
+                            (length === '5' && width === '4')
+                          "
+                          class="font-weight-bold"
+                        >
+                          Besar
+                        </td>
+                        <!-- <td v-else>-</td> -->
+                      </tr>
+                    </tbody>
+                  </template>
+                </v-simple-table>
+              </v-card>
+              <v-expansion-panels accordion>
+                <v-expansion-panel>
+                  <v-expansion-panel-header max-width="200"
+                    >Detail</v-expansion-panel-header
+                  >
+                  <v-expansion-panel-content>
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <!-- <thead>
                       <tr class="blue-grey darken-4">
                         <th class="text-left white--text">Fasilitas</th>
                         <th class="text-left white--text">Value(hasil)</th>
                       </tr>
                     </thead> -->
-                    <tbody>
-                      <tr>
-                        <td>Panjang Kamar</td>
-                        <td>{{ length }} meter</td>
-                      </tr>
-                      <tr>
-                        <td>Lebar Kamar</td>
-                        <td>{{ width }} meter</td>
-                      </tr>
-                      <tr>
-                        <td>Kamar mandi dalam</td>
-                        <td v-if="bathroom === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Meja belajar</td>
-                        <td v-if="table === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Kursi belajar</td>
-                        <td v-if="chair === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Dapur</td>
-                        <td v-if="kitchen === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>AC</td>
-                        <td v-if="chooseAc === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>WiFi</td>
-                        <td v-if="chooseWifi === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Parkir motor</td>
-                        <td v-if="motorcyleParking === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Parkir mobil</td>
-                        <td v-if="carParking === 1">Iya</td>
-                        <td v-else>Tidak</td>
-                      </tr>
-                      <tr>
-                        <td>Lokasi</td>
-                        <td v-if="location === 1">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                            ><a
-                              href="https://goo.gl/maps/fbL7Wuh2RJpuaFyw7"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Kecamatan Lowokwaru</a
-                            ></v-btn
-                          >
-                        </td>
-                        <td v-if="location === 2">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/Ayxih2sqdbwpxPom8"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Lowokwaru</a
-                            ></v-btn
-                          >
-                        </td>
-                        <td v-if="location === 3">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Kecamatan Klojen</a
-                            >
-                          </v-btn>
-                        </td>
-                        <td v-if="location === 4">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Klojen</a
-                            >
-                          </v-btn>
-                        </td>
-                        <td v-if="location === 5">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/mh2yT7119irget459"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Kecamatan Sukun</a
-                            >
-                          </v-btn>
-                        </td>
-                        <td v-if="location === 6">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/mh2yT7119irget459"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Sukun</a
-                            >
-                          </v-btn>
-                        </td>
-                        <td v-if="location === 7">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Kecamatan Blimbing</a
-                            >
-                          </v-btn>
-                        </td>
-                        <td v-if="location === 8">
-                          <v-btn
-                            color="amber darken-3"
-                            x-small
-                            class="white--text"
-                          >
-                            <a
-                              href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
-                              target="_blank"
-                              class="white--text text-decoration-none"
-                              >Blimbing</a
-                            >
-                          </v-btn>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </template>
-                </v-simple-table>
-                <v-divider></v-divider>
-                <!-- <v-card-actions>
+                        <tbody>
+                          <tr>
+                            <td>Panjang Kamar</td>
+                            <td>{{ length }} meter</td>
+                          </tr>
+                          <tr>
+                            <td>Lebar Kamar</td>
+                            <td>{{ width }} meter</td>
+                          </tr>
+                          <tr>
+                            <td>Kamar mandi dalam</td>
+                            <td v-if="bathroom === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Meja belajar</td>
+                            <td v-if="table === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Kursi belajar</td>
+                            <td v-if="chair === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Dapur</td>
+                            <td v-if="kitchen === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>AC</td>
+                            <td v-if="chooseAc === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>WiFi</td>
+                            <td v-if="chooseWifi === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Parkir motor</td>
+                            <td v-if="motorcyleParking === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Parkir mobil</td>
+                            <td v-if="carParking === 1">Iya</td>
+                            <td v-else>Tidak</td>
+                          </tr>
+                          <tr>
+                            <td>Lokasi</td>
+                            <td v-if="location === 1">
+                              Kecamatan Lowokwaru
+                              <a
+                                href="https://goo.gl/maps/fbL7Wuh2RJpuaFyw7"
+                                target="_blank"
+                                class="black--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map</v-btn
+                                >
+                              </a>
+                            </td>
+                            <td v-if="location === 2">
+                              Lowokwaru
+                              <a
+                                href="https://goo.gl/maps/Ayxih2sqdbwpxPom8"
+                                target="_blank"
+                                class="black--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map</v-btn
+                                >
+                              </a>
+                            </td>
+                            <td v-if="location === 3">
+                              Kecamatan Klojen
+                              <a
+                                href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                            <td v-if="location === 4">
+                              Klojen
+                              <a
+                                href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                            <td v-if="location === 5">
+                              Kecamatan Sukun
+                              <a
+                                href="https://goo.gl/maps/mh2yT7119irget459"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                            <td v-if="location === 6">
+                              Sukun
+                              <a
+                                href="https://goo.gl/maps/mh2yT7119irget459"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                            <td v-if="location === 7">
+                              Kecamatan Blimbing
+                              <a
+                                href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                            <td v-if="location === 8">
+                              Blimbing
+                              <a
+                                href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                                target="_blank"
+                                class="white--text text-decoration-none"
+                              >
+                                <v-btn
+                                  color="amber darken-3"
+                                  x-small
+                                  class="white--text text-capitalize"
+                                >
+                                  Lihat map
+                                </v-btn>
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+                    <v-divider></v-divider>
+                    <!-- <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" text @click="dialog = false">
                     Oke
                   </v-btn>
                 </v-card-actions> -->
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
-          <v-btn
-            block
-            color="blue-grey darken-3"
-            class="mt-6 rounded-lg white--text"
-            @click="dialog = false"
-          >
-            Oke
-          </v-btn>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+              <v-btn
+                block
+                color="blue-grey darken-3"
+                class="mt-6 rounded-lg white--text"
+                @click="dialog = false"
+              >
+                Oke
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-text>
       </v-card>
     </v-dialog>
