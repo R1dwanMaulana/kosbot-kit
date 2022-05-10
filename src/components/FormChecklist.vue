@@ -266,17 +266,6 @@
           <p class="mt-2 font-weight-bold">Sedang mencari...</p>
         </div>
         <v-card-text v-if="!loading" class="mt-10">
-          <!-- <v-alert
-            v-model="alert"
-            dismissible
-            color="cyan"
-            border="left"
-            elevation="2"
-            colored-border
-            icon="mdi-check-decagram"
-          >
-            Pencarian Berhasil
-          </v-alert> -->
           <v-alert outlined type="success" class="rounded-lg" text>
             Pencarian Berhasil
           </v-alert>
@@ -300,7 +289,7 @@
                   </tr>
                   <tr>
                     <td>Tipe Kamar</td>
-                    <td
+                    <!-- <td
                       v-if="
                         (length === '2' && width === '2') ||
                         (length === '2.5' && width === '2') ||
@@ -324,6 +313,39 @@
                     </td>
                     <td
                       v-if="length >= '4' && width >= '4'"
+                      class="font-weight-bold"
+                    >
+                      Besar
+                    </td> -->
+                    <!-- (length === '2' && width === '2') ||
+                        (length === '2.5' && width === '2') ||
+                        (length === '2' && width === '3') ||
+                        (length === '2.5' && width === '3.5') ||
+                        (length === '3' && width === '2') -->
+                    <td
+                      v-if="length < '4' && width < '4'"
+                      class="font-weight-bold"
+                    >
+                      Kecil
+                    </td>
+                    <td
+                      v-if="
+                        (length === '4' && width === '4') ||
+                        (length === '4.5' && width === '4') ||
+                        (length === '3' && width === '4') ||
+                        (length === '3.5' && width === '4') ||
+                        (length === '4' && width === '3')
+                      "
+                      class="font-weight-bold"
+                    >
+                      Sedang
+                    </td>
+                    <td
+                      v-if="
+                        (length >= '5' && width >= '5') ||
+                        (length === '4' && width === '5') ||
+                        (length === '5' && width === '4')
+                      "
                       class="font-weight-bold"
                     >
                       Besar
@@ -400,75 +422,115 @@
                       <tr>
                         <td>Lokasi</td>
                         <td v-if="location === 1">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/fbL7Wuh2RJpuaFyw7"
-                            target="_blank"
-                            class="black--text"
-                            >Kecamatan Lowokwaru</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
+                            ><a
+                              href="https://goo.gl/maps/fbL7Wuh2RJpuaFyw7"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Kecamatan Lowokwaru</a
+                            ></v-btn
                           >
                         </td>
                         <td v-if="location === 2">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/Ayxih2sqdbwpxPom8"
-                            target="_blank"
-                            class="black--text"
-                            >Lowokwaru</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
+                          >
+                            <a
+                              href="https://goo.gl/maps/Ayxih2sqdbwpxPom8"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Lowokwaru</a
+                            ></v-btn
                           >
                         </td>
                         <td v-if="location === 3">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
-                            target="_blank"
-                            class="black--text"
-                            >Kecamatan Klojen</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Kecamatan Klojen</a
+                            >
+                          </v-btn>
                         </td>
                         <td v-if="location === 4">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
-                            target="_blank"
-                            class="black--text"
-                            >Klojen</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/vcrxCSgNvLKSaKKD8"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Klojen</a
+                            >
+                          </v-btn>
                         </td>
                         <td v-if="location === 5">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/mh2yT7119irget459"
-                            target="_blank"
-                            class="black--text"
-                            >Kecamatan Sukun</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/mh2yT7119irget459"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Kecamatan Sukun</a
+                            >
+                          </v-btn>
                         </td>
                         <td v-if="location === 6">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/mh2yT7119irget459"
-                            target="_blank"
-                            >Sukun</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/mh2yT7119irget459"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Sukun</a
+                            >
+                          </v-btn>
                         </td>
                         <td v-if="location === 7">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
-                            target="_blank"
-                            class="black--text"
-                            >Kecamatan Blimbing</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Kecamatan Blimbing</a
+                            >
+                          </v-btn>
                         </td>
                         <td v-if="location === 8">
-                          <v-icon>mdi-map-marker </v-icon>
-                          <a
-                            href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
-                            target="_blank"
-                            class="black--text"
-                            >Blimbing</a
+                          <v-btn
+                            color="amber darken-3"
+                            x-small
+                            class="white--text"
                           >
+                            <a
+                              href="https://goo.gl/maps/jFjdQWXfX1VXtjG76"
+                              target="_blank"
+                              class="white--text text-decoration-none"
+                              >Blimbing</a
+                            >
+                          </v-btn>
                         </td>
                       </tr>
                     </tbody>
