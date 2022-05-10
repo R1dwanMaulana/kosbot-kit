@@ -72,7 +72,12 @@ export default {
     "@nuxtjs/vuetify",
   ],
 
-  vuetify: {},
+  vuetify: {
+    theme: {
+      // default theme is light mode
+      dark: false,
+    }
+  },
 
   // https://nuxtjs.org/api/configuration-plugins
   plugins: [],
