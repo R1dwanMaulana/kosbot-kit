@@ -42,8 +42,8 @@
           </v-btn>
         </template>
         <v-card class="rounded-lg">
-          <v-card-title class="text-h6 blue-grey darken-2 white--text">
-            Frequently Asked Questions
+          <v-card-title class="text-h6 blue-grey darken-4 white--text">
+            Pertanyaan Umum
           </v-card-title>
 
           <v-card-text class="mt-4">
@@ -82,16 +82,20 @@
               pengenalan aplikasi. Selanjutnya pengguna mengklik tombol coba
               sekarang, maka langsung diarahkan ke halaman menu fasilitas, lalu
               pengguna bisa memilih fasilitas yang diinginkan. Jika semua sudah,
-              maka langkah terakhir klik tombol cek. Sistem akan memproses data
+              maka langkah terakhir klik tombol cari. Sistem akan memproses data
               tersebut dan mencari kisaran harga yang cocok. Setelah sistem
-              selesai memproses, maka tampilan harga sewa / bulan akan tampil
-              dibagian bawah halaman.
+              selesai memproses, selanjutnya sistem menampilkan halaman detail
+              prediksi.
             </p>
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="dialog = false">
+            <v-btn
+              color="cyan darken-1"
+              class="white--text rounded-lg text-capitalize"
+              @click="dialog = false"
+            >
               Ok lanjut
             </v-btn>
           </v-card-actions>
