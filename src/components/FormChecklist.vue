@@ -222,7 +222,7 @@
             </v-col>
           </div>
           <v-btn
-            class="mt-8 rounded-lg white--text"
+            class="mt-8 rounded-lg white--text text-capitalize"
             color="amber darken-3"
             elevation="5"
             :loading="loading"
@@ -381,12 +381,12 @@
                             <td v-else>Tidak</td>
                           </tr>
                           <tr>
-                            <td>Meja belajar</td>
+                            <td>Meja</td>
                             <td v-if="table === 1">Iya</td>
                             <td v-else>Tidak</td>
                           </tr>
                           <tr>
-                            <td>Kursi belajar</td>
+                            <td>Kursi</td>
                             <td v-if="chair === 1">Iya</td>
                             <td v-else>Tidak</td>
                           </tr>
@@ -562,7 +562,7 @@
               <v-btn
                 block
                 color="blue-grey darken-3"
-                class="mt-6 rounded-lg white--text"
+                class="mt-6 rounded-lg white--text text-capitalize"
                 @click="dialog = false"
               >
                 Oke
@@ -688,7 +688,7 @@ export default {
       try {
         this.loading = true;
         // this.snackbar = true;
-        await new Promise((resolve) => setTimeout(resolve, 7000));
+        await new Promise((resolve) => setTimeout(resolve, 6000));
         this.predict =
           // -68531.9999133359 +
           // 193290.7399441 * this.length +
